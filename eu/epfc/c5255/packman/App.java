@@ -24,11 +24,6 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void settings () {
-		/*
-		 * la taille de la fenêtre est:
-		 * largeur = marge + nr_de_cellules * taille_de_la_cellule + marge
-		 * hauteur = marge + nr_de_cellules * taille_de_la_cellule + marge
-		 */
 		size(panel.getSize(), panel.getSize());
 	}
 	

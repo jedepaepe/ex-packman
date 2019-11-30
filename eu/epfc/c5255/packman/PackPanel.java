@@ -78,13 +78,14 @@ public class PackPanel {
 		cellXIndex %= nrCells;
 		// ramène l'index entre [0, nrCell[
 		if (cellXIndex < 0) cellXIndex += nrCells;
-		
+		// convertit l'index de la cellule en pixels
+		// marge + N.5 * cellule
 		return (int) (margin + (cellXIndex + 0.5F) * nrPixelsPerCell);
 	}
 	
 	/**
 	 * calcule et retourne la coordonnée Y du centre de la cellule
-	 * @param cellXIndex est l'index Y de la cellule
+	 * @param cellYIndex est l'index Y de la cellule
 	 * @return retourne la coordonnée Y du centre de la cellule
 	 */
 	public int getYOfCell (int cellYIndex) {
@@ -92,7 +93,7 @@ public class PackPanel {
 	}
 	
 	/**
-	 * @return la taille du panel (largeur = longueur) en pixels
+	 * @return la taille du damier (largeur = longueur) en pixels
 	 */
 	public int getSize () {
 		return nrCells * nrPixelsPerCell + 2 * margin;

@@ -8,7 +8,7 @@ import processing.core.PApplet;
  */
 public class Packman {
 	/**
-	 * diametre de packman en % de la taille d'une cellule 
+	 * diametre de packman en pixel 
 	 */
 	public float diameter = 1.1F * 21;
 	
@@ -39,18 +39,30 @@ public class Packman {
 		pApplet.ellipse(pixelX, pixelY, diameter, diameter);
 	}
 	
+	/**
+	 * enregistre un déplacement vers le haut
+	 */
 	public void moveUp () {
 		--y;
 	}
 	
+	/**
+	 * enregistre un déplacement vers la droite
+	 */
 	public void moveRight () {
 		++x;
 	}
 	
+	/**
+	 * enregistre un déplacement vers le bas
+	 */
 	public void moveDown () {
 		++y;
 	}
 	
+	/**
+	 * enregistre un déplacement vers la droite
+	 */
 	public void moveLeft () {
 		--x;
 	}

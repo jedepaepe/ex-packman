@@ -6,35 +6,8 @@ import processing.core.PApplet;
  * Classe principale de l'application
  */
 public class App extends PApplet {
-	/**
-	 * taille de la marge ne pixels
-	 */
-	static int margin = 25;
-	
-	/**
-	 * nombre de cellules par damier
-	 */
-	static int nrCells = 29;
-	
-	/**
-	 * taille des cellules
-	 */
-	static int nrPixelPerCell = 21;
-
-	/**
-	 * taille de packman
-	 */
-	static int packmanDiameter = (int) (nrPixelPerCell * 1.1);
-	
-	/**
-	 * absisse (x) de packman (première cellule = 0)
-	 */
-	static int packmanX = nrCells / 2;
-	
-	/**
-	 * coordonnée (y) de packman (première cellule = 0)
-	 */
-	static int packmanY = 10;
+	public static App app = null;
+	public Panel panel = new Panel();
 	
 	/**
 	 * point d'entrée du programme
@@ -50,12 +23,14 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void settings () {
+		App.app = this;
+		
 		/**
 		 * la taille de la fenêtre est:
 		 * largeur = marge + nr_de_cellules * taille_de_la_cellule + marge
 		 * hauteur = marge + nr_de_cellules * taille_de_la_cellule + marge
 		 */
-		size(nrCells * nrPixelPerCell + 2 * margin, nrCells * nrPixelPerCell + 2 * margin);
+		size(panel.nrCells * panel.cellSize + 2 * panel.margin, panel.nrCells * panel.cellSize + 2 * panel.margin);
 	}
 	
 	/**
@@ -74,11 +49,11 @@ public class App extends PApplet {
 		stroke(128, 0, 255);
 		
 		// dessine le damier
-		for (int i = 0; i <= nrCells; ++i) {
+		for (int i = 0; i <= panel.nrCells; ++i) {
 			// ligne horizontale
-			line(margin, margin + i * nrPixelPerCell, margin + nrCells * nrPixelPerCell, margin + i * nrPixelPerCell);
+			line(panel.margin, panel.margin + i * panel.cellSize, panel.margin + panel.nrCells * panel.cellSize, panel.margin + i * panel.cellSize);
 			// ligne verticale
-			line(margin + i * nrPixelPerCell, margin, margin + i * nrPixelPerCell, margin + nrCells * nrPixelPerCell);
+			line(panel.margin + i * panel.cellSize, panel.margin, panel.margin + i * panel.cellSize, panel.margin + panel.nrCells * panel.cellSize);
 		}
 		
 		drawPackman();		
@@ -92,21 +67,21 @@ public class App extends PApplet {
 		// dépendant la touche clavier enfoncée
 		switch (keyCode) {
 		case UP:
-			packmanY = --packmanY % nrCells;
+			panel.packman.y = --panel.packman.y % panel.nrCells;
 			break;
 		case RIGHT:
-			packmanX = ++packmanX % nrCells;
+			panel.packman.x = ++panel.packman.x % panel.nrCells;
 			break;
 		case DOWN:
-			packmanY = ++packmanY % nrCells;
+			panel.packman.y = ++panel.packman.y % panel.nrCells;
 			break;
 		case LEFT:
-			packmanX = --packmanX % nrCells;
+			panel.packman.x = --panel.packman.x % panel.nrCells;
 			break;
 		}
 		// appliquer une translation de nrCells si négatif
-		if (packmanX < 0) packmanX +=nrCells;
-		if (packmanY < 0) packmanY +=nrCells;
+		if (panel.packman.x < 0) panel.packman.x += panel.nrCells;
+		if (panel.packman.y < 0) panel.packman.y += panel.nrCells;
 	}
 	
 	/**
@@ -120,6 +95,9 @@ public class App extends PApplet {
 		fill(255, 255, 0);
 		
 		// dessine packman
-		ellipse(margin + (packmanX + 0.5F) * nrPixelPerCell, margin + (packmanY + 0.5F) * nrPixelPerCell, packmanDiameter, packmanDiameter);
+		ellipse(
+				panel.margin + (panel.packman.x + 0.5F) * panel.cellSize,
+				panel.margin + (panel.packman.y + 0.5F) * panel.cellSize, 
+				panel.packman.diameter, panel.packman.diameter);
 	}
 }

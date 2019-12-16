@@ -6,7 +6,6 @@ import processing.core.PApplet;
  * Classe principale de l'application
  */
 public class App extends PApplet {
-	public static App app = null;
 	public Panel panel = new Panel();
 	
 	/**
@@ -23,14 +22,7 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void settings () {
-		App.app = this;
-		
-		/**
-		 * la taille de la fenêtre est:
-		 * largeur = marge + nr_de_cellules * taille_de_la_cellule + marge
-		 * hauteur = marge + nr_de_cellules * taille_de_la_cellule + marge
-		 */
-		size(panel.nrCells * panel.cellSize + 2 * panel.margin, panel.nrCells * panel.cellSize + 2 * panel.margin);
+		size(panel.getWidth(), panel.getHeight());
 	}
 	
 	/**

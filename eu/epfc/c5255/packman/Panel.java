@@ -20,5 +20,13 @@ public class Panel {
 	/**
 	 * packman object
 	 */
-	public Packman packman = new Packman();
+	Packman packman = new Packman();
+	
+	int getWidth() {
+		return nrCells * cellSize + 2 * margin;
+	}
+	
+	int getHeight() {
+		return nrCells * cellSize + 2 * margin;
+	}
 }

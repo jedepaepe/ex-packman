@@ -15,7 +15,7 @@ public class App extends PApplet {
 	 * référence sur le damier
 	 */
 	public Panel panel = new Panel();
-	
+
 	/**
 	 * point d'entrée du programme
 	 * @param args sont les arguments passés par la ligne de commande
@@ -24,7 +24,7 @@ public class App extends PApplet {
 		// démarre le moteur Processing (la GUI)
 		PApplet.main(App.class.getName());
 	}
-	
+
 	/**
 	 * configure l'application
 	 */
@@ -36,33 +36,26 @@ public class App extends PApplet {
 		// change la taille de la fenêtre
 		size(panel.getWidth(), panel.getHeight());
 	}
-	
+
 	/**
 	 * dessine l'image de base
 	 */
 	@Override
 	public void setup () {
 	}
-	
+
 	@Override
 	public void draw () {
 		// couleur de fond noir
 		background(0);
-		
-		// pinceau de trait mauve
-		stroke(128, 0, 255);
-		
+
 		// dessine le damier
-		for (int i = 0; i <= panel.nrCells; ++i) {
-			// ligne horizontale
-			line(panel.margin, panel.margin + i * panel.cellSize, panel.margin + panel.nrCells * panel.cellSize, panel.margin + i * panel.cellSize);
-			// ligne verticale
-			line(panel.margin + i * panel.cellSize, panel.margin, panel.margin + i * panel.cellSize, panel.margin + panel.nrCells * panel.cellSize);
-		}
-		
-		drawPackman();		
+		panel.draw();
+
+		// dessine packman
+		drawPackman();
 	}
-	
+
 	/**
 	 * calcule la nouvelle position de packman
 	 */
@@ -84,21 +77,21 @@ public class App extends PApplet {
 			break;
 		}
 	}
-	
+
 	/**
 	 * dessine packman
 	 */
 	public void drawPackman () {
 		// pas de trait
 		noStroke();
-		
+
 		// pinceau de remplissage jaune
 		fill(255, 255, 0);
-		
+
 		// dessine packman
 		ellipse(
 				panel.margin + (panel.packman.x + 0.5F) * panel.cellSize,
-				panel.margin + (panel.packman.y + 0.5F) * panel.cellSize, 
+				panel.margin + (panel.packman.y + 0.5F) * panel.cellSize,
 				panel.packman.diameter, panel.packman.diameter);
 	}
 }

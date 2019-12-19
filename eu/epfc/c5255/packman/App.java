@@ -7,6 +7,11 @@ import processing.core.PApplet;
  */
 public class App extends PApplet {
 	/**
+	 * champ global nécessaire pour dessiner
+	 */
+	static public App app = null;
+
+	/**
 	 * référence sur le damier
 	 */
 	public Panel panel = new Panel();
@@ -25,6 +30,10 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void settings () {
+		// initialisation de l'App
+		app = this;
+
+		// change la taille de la fenêtre
 		size(panel.getWidth(), panel.getHeight());
 	}
 	

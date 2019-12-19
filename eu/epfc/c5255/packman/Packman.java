@@ -8,17 +8,17 @@ public class Packman {
 	int diameter = 23;
 	
 	/**
-	 * coordonnée (y) de packman (première cellule = 0)
+	 * coordonnÃ©e (y) de packman (premiÃ¨re cellule = 0)
 	 */
 	int y = 10;
 	
 	/**
-	 * absisse (x) de packman (première cellule = 0)
+	 * absisse (x) de packman (premiÃ¨re cellule = 0)
 	 */
 	int x = 15;
 
 	/**
-	 * calcule l'indice de la ligne suite à un déplacement vers le haut
+	 * calcule l'indice de la ligne suite Ã  un dÃ©placement vers le haut
 	 * @param nrLines est le nombre de lignes
 	 */
 	public void moveUp(int nrLines) {
@@ -26,7 +26,7 @@ public class Packman {
 	}
 
 	/**
-	 * calcule l'indice de la colonne suite à un déplacement vers la droite 
+	 * calcule l'indice de la colonne suite Ã  un dÃ©placement vers la droite 
 	 * @param nrColumns est le nombre de colonnes
 	 */
 	public void moveRigh(int nrColumns) {
@@ -34,7 +34,7 @@ public class Packman {
 	}
 	
 	/**
-	 * calcule l'indice de la ligne suite à un déplacement vers le bas
+	 * calcule l'indice de la ligne suite Ã  un dÃ©placement vers le bas
 	 * @param nrLines est l'indice maximum
 	 */
 	public void moveDown(int nrLines) {
@@ -42,7 +42,7 @@ public class Packman {
 	}
 	
 	/**
-	 * calcule l'indice de la colonne suite à un déplacement vers le base
+	 * calcule l'indice de la colonne suite Ã  un dÃ©placement vers le base
 	 * @param nrColumns est le nombre de colonnes
 	 */
 	public void moveLeft(int nrColumns) {

@@ -6,14 +6,17 @@ import processing.core.PApplet;
  * Classe principale de l'application
  */
 public class App extends PApplet {
+	/**
+	 * r√©f√©rence sur le damier
+	 */
 	public Panel panel = new Panel();
 	
 	/**
-	 * point d'entrÈe du programme
-	 * @param args sont les arguments passÈs par la ligne de commande
+	 * point d'entr√©e du programme
+	 * @param args sont les arguments pass√©s par la ligne de commande
 	 */
 	public static void main(String[] args) {
-		// dÈmarre le moteur Processing (la GUI)
+		// d√©marre le moteur Processing (la GUI)
 		PApplet.main(App.class.getName());
 	}
 	
@@ -56,7 +59,7 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void keyPressed () {
-		// dÈpendant la touche clavier enfoncÈe
+		// d√©pendant la touche clavier enfonc√©e
 		switch (keyCode) {
 		case UP:
 			panel.packman.moveUp(panel.nrCells);

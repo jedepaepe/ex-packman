@@ -42,23 +42,7 @@ public class Panel {
 			App.app.line(margin + i * cellSize, margin, margin + i * cellSize, margin + nrCells * cellSize);
 		}
 
-		drawPackman();
-	}
-
-	/**
-	 * dessine packman
-	 */
-	public void drawPackman() {
-		// pas de trait
-		App.app.noStroke();
-
-		// pinceau de remplissage jaune
-		App.app.fill(255, 255, 0);
-
 		// dessine packman
-		App.app.ellipse(
-				margin + (packman.cIndex + 0.5F) * cellSize,
-				margin + (packman.lIndex + 0.5F) * cellSize,
-				packman.diameter, packman.diameter);
+		packman.draw(margin + (packman.cIndex + 0.5F) * cellSize, margin + (packman.lIndex + 0.5F) * cellSize);
 	}
 }

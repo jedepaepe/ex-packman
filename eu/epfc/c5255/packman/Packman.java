@@ -48,4 +48,20 @@ public class Packman {
 	public void moveLeft(int nrColumns) {
 		cIndex = (--cIndex + nrColumns) % nrColumns;
 	}
+
+	/**
+	 * dessine Packman
+	 * @param x est la position x du centre de packman
+	 * @param y est la position y du centre de packman
+	 */
+	public void draw(float x, float y) {
+		// pas de trait
+		App.app.noStroke();
+
+		// pinceau de remplissage jaune
+		App.app.fill(255, 255, 0);
+
+		// dessine packman
+		App.app.ellipse(x, y, diameter, diameter);
+	}
 }

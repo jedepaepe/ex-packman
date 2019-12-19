@@ -51,9 +51,6 @@ public class App extends PApplet {
 
 		// dessine le damier
 		panel.draw();
-
-		// dessine packman
-		drawPackman();
 	}
 
 	/**
@@ -76,22 +73,5 @@ public class App extends PApplet {
 			panel.packman.moveLeft(panel.nrCells);
 			break;
 		}
-	}
-
-	/**
-	 * dessine packman
-	 */
-	public void drawPackman () {
-		// pas de trait
-		noStroke();
-
-		// pinceau de remplissage jaune
-		fill(255, 255, 0);
-
-		// dessine packman
-		ellipse(
-				panel.margin + (panel.packman.x + 0.5F) * panel.cellSize,
-				panel.margin + (panel.packman.y + 0.5F) * panel.cellSize,
-				panel.packman.diameter, panel.packman.diameter);
 	}
 }

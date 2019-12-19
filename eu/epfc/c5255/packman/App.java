@@ -59,21 +59,18 @@ public class App extends PApplet {
 		// dépendant la touche clavier enfoncée
 		switch (keyCode) {
 		case UP:
-			panel.packman.y = --panel.packman.y % panel.nrCells;
+			panel.packman.moveUp(panel.nrCells);
 			break;
 		case RIGHT:
-			panel.packman.x = ++panel.packman.x % panel.nrCells;
+			panel.packman.moveRigh(panel.nrCells);
 			break;
 		case DOWN:
-			panel.packman.y = ++panel.packman.y % panel.nrCells;
+			panel.packman.moveDown(panel.nrCells);;
 			break;
 		case LEFT:
-			panel.packman.x = --panel.packman.x % panel.nrCells;
+			panel.packman.moveLeft(panel.nrCells);
 			break;
 		}
-		// appliquer une translation de nrCells si négatif
-		if (panel.packman.x < 0) panel.packman.x += panel.nrCells;
-		if (panel.packman.y < 0) panel.packman.y += panel.nrCells;
 	}
 	
 	/**

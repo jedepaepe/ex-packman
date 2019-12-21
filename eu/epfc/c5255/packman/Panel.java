@@ -108,6 +108,9 @@ public class Panel {
 	 */
 	public void keyPressed() {
 		packman.keyPressed(nrCells, nrCells);
+
+		// packman mange le trésor
+		treasures[packman.getCIndex()][packman.getRIndex()] = false;
 	}
 
 	/**

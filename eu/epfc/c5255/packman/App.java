@@ -9,7 +9,7 @@ public class App extends PApplet {
 	/**
 	 * référence sur le damier
 	 */
-	public Panel panel;
+	private Panel panel;
 
 	/**
 	 * point d'entrée du programme

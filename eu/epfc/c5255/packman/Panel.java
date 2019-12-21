@@ -61,14 +61,14 @@ public class Panel {
 	/**
 	 * @return la largeur du damier
 	 */
-	int getWidth() {
+	public int getWidth() {
 		return nrCells * cellSize + 2 * margin;
 	}
 
 	/**
 	 * @return la hauteur du damier
 	 */
-	int getHeight() {
+	public int getHeight() {
 		return nrCells * cellSize + 2 * margin;
 	}
 

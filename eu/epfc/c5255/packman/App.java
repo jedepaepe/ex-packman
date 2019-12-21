@@ -54,5 +54,6 @@ public class App extends PApplet {
 	@Override
 	public void keyPressed () {
 		panel.keyPressed();
+		System.out.println(panel.getScore());
 	}
 }

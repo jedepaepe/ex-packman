@@ -50,8 +50,8 @@ public class Panel {
 		packman = new Packman(painter);
 
 		// initialise les trésors
-		for (int c = 0; c < nrCells; ++ c) {
-			for (int r = 0; r < nrCells; ++r) {
+		for (int c = 0; c < treasures.length; ++ c) {
+			for (int r = 0; r < treasures[c].length; ++r) {
 				// il y a un trésor
 				treasures[c][r] = true;
 			}
@@ -70,6 +70,16 @@ public class Panel {
 	 */
 	public int getHeight() {
 		return nrCells * cellSize + 2 * margin;
+	}
+
+	public int getScore() {
+		int score = 0;
+		for (int c = 0; c < treasures.length; ++c) {
+			for (int r = 0; r < treasures[c].length; ++r) {
+				if (! treasures[c][r]) ++score;
+			}
+		}
+		return score;
 	}
 
 	/**

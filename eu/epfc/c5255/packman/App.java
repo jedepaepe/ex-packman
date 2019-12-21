@@ -56,6 +56,10 @@ public class App extends PApplet {
 		// dessine le damier
 		panel.draw();
 
+		// met à jour le score
+		dashboard.setScore(panel.getScore());
+		System.out.println(dashboard.getScore());
+
 		// dessine le dashboard
 		dashboard.draw();
 	}
@@ -66,7 +70,5 @@ public class App extends PApplet {
 	@Override
 	public void keyPressed () {
 		panel.keyPressed();
-		dashboard.setScore(panel.getScore());
-		System.out.println(dashboard.getScore());
 	}
 }

@@ -53,20 +53,6 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void keyPressed () {
-		// dépendant la touche clavier enfoncée
-		switch (keyCode) {
-		case UP:
-			panel.packman.moveUp(panel.nrCells);
-			break;
-		case RIGHT:
-			panel.packman.moveRigh(panel.nrCells);
-			break;
-		case DOWN:
-			panel.packman.moveDown(panel.nrCells);;
-			break;
-		case LEFT:
-			panel.packman.moveLeft(panel.nrCells);
-			break;
-		}
+		panel.keyPressed();
 	}
 }

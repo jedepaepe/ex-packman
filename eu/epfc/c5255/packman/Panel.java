@@ -6,27 +6,27 @@ public class Panel {
 	/**
 	 * référence sur le PApplet pour dessiner
 	 */
-	PApplet painter = null;
+	private PApplet painter = null;
 
 	/**
 	 * taille de la marge ne pixels
 	 */
-	int margin = 25;
+	private int margin = 25;
 
 	/**
 	 * nombre de cellules par damier
 	 */
-	int nrCells = 29;
+	private int nrCells = 29;
 
 	/**
 	 * taille des cellules
 	 */
-	int cellSize = 21;
+	private int cellSize = 21;
 
 	/**
 	 * références sur l'objet packman
 	 */
-	Packman packman = null;
+	private Packman packman = null;
 
 	/**
 	 * Constructeur du Panel
@@ -70,7 +70,14 @@ public class Panel {
 		}
 
 		// dessine packman
-		packman.draw(getCellCenterX(packman.cIndex), getCellCenterY(packman.lIndex));
+		packman.draw(getCellCenterX(packman.getCIndex()), getCellCenterY(packman.getLIndex()));
+	}
+
+	/**
+	 * Traite l'événement touche clavier
+	 */
+	public void keyPressed() {
+		packman.keyPressed(nrCells, nrCells);
 	}
 
 	/**

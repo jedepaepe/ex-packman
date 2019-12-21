@@ -6,22 +6,22 @@ public class Packman {
 	/**
 	 * référence sur le PApplet pour dessiner
 	 */
-	PApplet painter = null;
+	private PApplet painter = null;
 
 	/**
 	 * taille de packman
 	 */
-	int diameter = 23;
+	private int diameter = 23;
 
 	/**
 	 * index de la ligne où se trouve packman
 	 */
-	int lIndex = 10;
+	private int lIndex = 10;
 
 	/**
 	 * index de la colonne où se trouve packman
 	 */
-	int cIndex = 15;
+	private int cIndex = 15;
 
 	/**
 	 * Contructeur de Packman
@@ -30,6 +30,20 @@ public class Packman {
 	public Packman(PApplet painter) {
 		// initialise le champs painter
 		this.painter = painter;
+	}
+
+	/**
+	 * @return l'indexe de la colonne où se trouve Packman
+	 */
+	public int getCIndex() {
+		return cIndex;
+	}
+
+	/**
+	 * @return l'indexe de la ligne où se trouve Packman
+	 */
+	public int getLIndex() {
+		return lIndex;
 	}
 
 	/**
@@ -78,5 +92,26 @@ public class Packman {
 
 		// dessine packman
 		painter.ellipse(x, y, diameter, diameter);
+	}
+
+	/**
+	 * traite les événement de touches claviers enfoncés
+	 */
+	public void keyPressed(int nrColumns, int nrLines) {
+		// dépendant la touche clavier enfoncée
+		switch (painter.keyCode) {
+		case PApplet.UP:
+			moveUp(nrLines);
+			break;
+		case PApplet.RIGHT:
+			moveRigh(nrColumns);
+			break;
+		case PApplet.DOWN:
+			moveDown(nrLines);;
+			break;
+		case PApplet.LEFT:
+			moveLeft(nrColumns);
+			break;
+		}
 	}
 }

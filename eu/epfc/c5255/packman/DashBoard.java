@@ -42,13 +42,14 @@ public class DashBoard {
 	 * @return la hauteur du dashboard
 	 */
 	public int getHeigth() {
-		return 200;
+		return 100;
 	}
 
 	/**
 	 * dessine le dashboard
 	 */
 	public void draw() {
-		painter.text(score, x + 40, y + 100);
+		painter.textSize(32);
+		painter.text(score, x + 80, y + 50);
 	}
 }

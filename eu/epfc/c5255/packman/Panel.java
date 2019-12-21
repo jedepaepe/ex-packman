@@ -101,6 +101,14 @@ public class Panel {
 		// bouge Packman
 		packman.move();
 
+		// Packman meurt s'il touche un fantome
+		for (int n = 0; n < ghosts.length; ++n) {
+			Ghost g = ghosts[n];
+			if (packman.getCIndex() == g.getCIndex() && packman.getRIndex() == g.getRIndex()) {
+				packman.killed();
+			}
+		}
+
 		// packman mange le trésor
 		treasures[packman.getCIndex()][packman.getRIndex()] = false;
 	}

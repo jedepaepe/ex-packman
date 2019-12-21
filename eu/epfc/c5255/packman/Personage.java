@@ -9,6 +9,11 @@ public class Personage {
 	protected PApplet painter = null;
 
 	/**
+	 * en vie ou pas
+	 */
+	boolean alive = true;
+
+	/**
 	 * taille de personage
 	 */
 	private int diameter = 23;
@@ -105,35 +110,46 @@ public class Personage {
 	 * déplace personage
 	 */
 	public void move() {
-		switch(direction) {
-		case PApplet.UP:
-			moveUp();
-			break;
-		case PApplet.RIGHT:
-			moveRigh();
-			break;
-		case PApplet.DOWN:
-			moveDown();
-			break;
-		case PApplet.LEFT:
-			moveLeft();
-			break;
+		if (alive) {
+			switch(direction) {
+			case PApplet.UP:
+				moveUp();
+				break;
+			case PApplet.RIGHT:
+				moveRigh();
+				break;
+			case PApplet.DOWN:
+				moveDown();
+				break;
+			case PApplet.LEFT:
+				moveLeft();
+				break;
+			}
 		}
 	}
 
 	/**
-	 * dessine personage
+	 * le personnage est tué
+	 */
+	public void killed() {
+		alive = false;
+	}
+
+	/**
+	 * dessine personage s'il est en vie
 	 * @param x est la position x du centre de personage
 	 * @param y est la position y du centre de personage
 	 */
 	public void draw(float x, float y) {
-		// pas de trait
-		painter.noStroke();
+		if (alive) {
+			// pas de trait
+			painter.noStroke();
 
-		// pinceau de remplissage jaune
-		painter.fill(color);
+			// pinceau de remplissage jaune
+			painter.fill(color);
 
-		// dessine personage
-		painter.ellipse(x, y, diameter, diameter);
+			// dessine personage
+			painter.ellipse(x, y, diameter, diameter);
+		}
 	}
 }

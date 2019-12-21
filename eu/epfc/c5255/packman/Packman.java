@@ -44,6 +44,8 @@ public class Packman {
 		this.painter = painter;
 		this.nrColumns = nrColumns;
 		this.nrRows = nrRows;
+		this.cIndex = (int) painter.random(nrColumns);
+		this.rIndex = (int) painter.random(nrRows);
 	}
 
 	/**

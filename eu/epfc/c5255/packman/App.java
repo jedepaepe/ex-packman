@@ -50,15 +50,16 @@ public class App extends PApplet {
 
 	@Override
 	public void draw () {
+		// met à jour l'état du jeu
+		panel.updateState();
+		dashboard.setScore(panel.getScore());
+
+		// dessine
 		// couleur de fond noir
 		background(0);
 
 		// dessine le damier
 		panel.draw();
-
-		// met à jour le score
-		dashboard.setScore(panel.getScore());
-		System.out.println(dashboard.getScore());
 
 		// dessine le dashboard
 		dashboard.draw();

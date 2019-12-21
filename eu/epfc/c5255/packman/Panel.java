@@ -85,15 +85,20 @@ public class Panel {
 	}
 
 	/**
-	 * dessine le damier et ses composant
+	 * met à jour l'état du jeu
 	 */
-	public void draw() {
+	public void updateState() {
 		// bouge Packman
 		packman.move();
 
 		// packman mange le trésor
 		treasures[packman.getCIndex()][packman.getRIndex()] = false;
+	}
 
+	/**
+	 * dessine le damier et ses composants
+	 */
+	public void draw() {
 		// pinceau de trait mauve
 		painter.stroke(128, 0, 255);
 

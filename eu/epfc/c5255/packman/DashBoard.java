@@ -39,6 +39,21 @@ public class DashBoard {
 	}
 
 	/**
+	 * @return le score
+	 */
+	public int getScore() {
+		return score;
+	}
+
+	/**
+	 * assigne une nouvelle valeur au score
+	 * @param score est la nouvelle valeur
+	 */
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	/**
 	 * @return la hauteur du dashboard
 	 */
 	public int getHeigth() {

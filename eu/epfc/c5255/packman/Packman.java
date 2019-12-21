@@ -14,9 +14,9 @@ public class Packman {
 	private int diameter = 23;
 
 	/**
-	 * index de la ligne où se trouve packman
+	 * index de la ligne où se trouve packman (r: row)
 	 */
-	private int lIndex = 10;
+	private int rIndex = 10;
 
 	/**
 	 * index de la colonne où se trouve packman
@@ -42,8 +42,8 @@ public class Packman {
 	/**
 	 * @return l'indexe de la ligne où se trouve Packman
 	 */
-	public int getLIndex() {
-		return lIndex;
+	public int getRIndex() {
+		return rIndex;
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class Packman {
 	 * @param nrLines est le nombre de lignes
 	 */
 	public void moveUp(int nrLines) {
-		lIndex = (--lIndex + nrLines) % nrLines;
+		rIndex = (--rIndex + nrLines) % nrLines;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class Packman {
 	 * @param nrLines est l'indice maximum
 	 */
 	public void moveDown(int nrLines) {
-		lIndex = (++lIndex + nrLines) % nrLines;
+		rIndex = (++rIndex + nrLines) % nrLines;
 	}
 
 	/**

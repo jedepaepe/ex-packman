@@ -70,7 +70,7 @@ public class Panel {
 		}
 
 		// dessine packman
-		packman.draw(getCellCenterX(packman.getCIndex()), getCellCenterY(packman.getLIndex()));
+		packman.draw(getCellCenterX(packman.getCIndex()), getCellCenterY(packman.getRIndex()));
 	}
 
 	/**

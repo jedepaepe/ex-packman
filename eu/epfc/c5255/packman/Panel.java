@@ -39,12 +39,22 @@ public class Panel {
 	private boolean[][] treasures = new boolean[nrCells][nrCells];
 
 	/**
+	 * les fantômes
+	 */
+	private Ghost[] ghosts = new Ghost[10];
+
+	/**
 	 * Constructeur du Panel
 	 * @param painter est une référence sur un PApplet, pour pouvoir dessiner
 	 */
 	public Panel(PApplet painter) {
 		// initialise le champs painter
 		this.painter = painter;
+
+		// crée les Ghosts
+		for (int n = 0; n < ghosts.length; ++n) {
+			ghosts[n] = new Ghost(painter, nrCells, nrCells);
+		}
 
 		// crée un objet Packman
 		packman = new Packman(painter, nrCells, nrCells);
@@ -112,6 +122,10 @@ public class Panel {
 
 		// dessine packman
 		packman.draw(getCellCenterX(packman.getCIndex()), getCellCenterY(packman.getRIndex()));
+
+		for (int n = 0; n < ghosts.length; ++n) {
+			ghosts[n].draw(getCellCenterX(ghosts[n].getCIndex()), getCellCenterX(ghosts[n].getRIndex()));
+		}
 
 		// pinceaux blancs
 		painter.fill(255);

@@ -16,7 +16,7 @@ public class Personage {
 	/**
 	 * couleur du personnage
 	 */
-	private int color;
+	protected int color;
 
 	/**
 	 * index de la ligne où se trouve personage (r: row)

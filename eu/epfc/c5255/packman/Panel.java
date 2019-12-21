@@ -88,6 +88,12 @@ public class Panel {
 	 * dessine le damier et ses composant
 	 */
 	public void draw() {
+		// bouge Packman
+		packman.move();
+
+		// packman mange le trésor
+		treasures[packman.getCIndex()][packman.getRIndex()] = false;
+
 		// pinceau de trait mauve
 		painter.stroke(128, 0, 255);
 
@@ -98,6 +104,9 @@ public class Panel {
 			// ligne verticale
 			painter.line(margin + i * cellSize, margin, margin + i * cellSize, margin + nrCells * cellSize);
 		}
+
+		// dessine packman
+		packman.draw(getCellCenterX(packman.getCIndex()), getCellCenterY(packman.getRIndex()));
 
 		// pinceaux blancs
 		painter.fill(255);
@@ -110,9 +119,6 @@ public class Panel {
 				}
 			}
 		}
-
-		// dessine packman
-		packman.draw(getCellCenterX(packman.getCIndex()), getCellCenterY(packman.getRIndex()));
 	}
 
 	/**
@@ -120,9 +126,6 @@ public class Panel {
 	 */
 	public void keyPressed() {
 		packman.keyPressed(nrCells, nrCells);
-
-		// packman mange le trésor
-		treasures[packman.getCIndex()][packman.getRIndex()] = false;
 	}
 
 	/**

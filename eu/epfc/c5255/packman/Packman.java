@@ -121,9 +121,6 @@ public class Packman {
 	 * @param y est la position y du centre de packman
 	 */
 	public void draw(float x, float y) {
-		// bouge packman
-		move();
-
 		// pas de trait
 		painter.noStroke();
 

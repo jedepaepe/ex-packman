@@ -93,7 +93,9 @@ public class Panel {
 		// dessine les trésors
 		for (int c = 0; c < nrCells; ++c) {
 			for (int r = 0; r < nrCells; ++r) {
-				painter.ellipse(getCellCenterX(c), getCellCenterY(r), treasureDiameter, treasureDiameter);
+				if (treasures[c][r]) {
+					painter.ellipse(getCellCenterX(c), getCellCenterY(r), treasureDiameter, treasureDiameter);
+				}
 			}
 		}
 

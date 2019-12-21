@@ -29,6 +29,16 @@ public class Panel {
 	private Packman packman = null;
 
 	/**
+	 * diametre des trésors
+	 */
+	private float treasureDiameter = 3;
+
+	/**
+	 * les trésors
+	 */
+	private boolean[][] treasures = new boolean[nrCells][nrCells];
+
+	/**
 	 * Constructeur du Panel
 	 * @param painter est une référence sur un PApplet, pour pouvoir dessiner
 	 */
@@ -38,6 +48,14 @@ public class Panel {
 
 		// crée un objet Packman
 		packman = new Packman(painter);
+
+		// initialise les trésors
+		for (int c = 0; c < nrCells; ++ c) {
+			for (int r = 0; r < nrCells; ++r) {
+				// il y a un trésor
+				treasures[c][r] = true;
+			}
+		}
 	}
 
 	/**
@@ -67,6 +85,16 @@ public class Panel {
 			painter.line(margin, margin + i * cellSize, margin + nrCells * cellSize, margin + i * cellSize);
 			// ligne verticale
 			painter.line(margin + i * cellSize, margin, margin + i * cellSize, margin + nrCells * cellSize);
+		}
+
+		// pinceaux blancs
+		painter.fill(255);
+
+		// dessine les trésors
+		for (int c = 0; c < nrCells; ++c) {
+			for (int r = 0; r < nrCells; ++r) {
+				painter.ellipse(getCellCenterX(c), getCellCenterY(r), treasureDiameter, treasureDiameter);
+			}
 		}
 
 		// dessine packman

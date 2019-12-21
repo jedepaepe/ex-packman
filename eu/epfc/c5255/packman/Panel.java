@@ -101,6 +101,11 @@ public class Panel {
 		// bouge Packman
 		packman.move();
 
+		// bouge les fantômes
+		for (int n = 0; n < ghosts.length; ++n) {
+			ghosts[n].updateState();
+		}
+
 		// Packman meurt s'il touche un fantome
 		for (int n = 0; n < ghosts.length; ++n) {
 			Ghost g = ghosts[n];

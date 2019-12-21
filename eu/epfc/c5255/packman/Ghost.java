@@ -15,4 +15,24 @@ public class Ghost extends Personage {
 		color = painter.color(255, 0, 0);
 	}
 
+	public void updateState() {
+		if(painter.random(4) < 1) {
+			int value = (int) painter.random(4);
+			switch(value) {
+			case 0:
+				direction = PApplet.UP;
+				break;
+			case 1:
+				direction = PApplet.RIGHT;
+				break;
+			case 2:
+				direction = PApplet.DOWN;
+				break;
+			case 3:
+				direction = PApplet.LEFT;
+				break;
+			}
+		}
+		move();
+	}
 }

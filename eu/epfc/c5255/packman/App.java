@@ -9,7 +9,12 @@ public class App extends PApplet {
 	/**
 	 * référence sur le damier
 	 */
-	private Panel panel;
+	private Panel panel = null;
+
+	/**
+	 * référence sur le tableau de bord
+	 */
+	private DashBoard dashboard = null;
 
 	/**
 	 * point d'entrée du programme
@@ -28,8 +33,11 @@ public class App extends PApplet {
 		// instancie le damier en passant une référence sur le PApplet pour pouvoir dessiner
 		panel = new Panel(this);
 
+		// instancie le dashboard
+		dashboard = new DashBoard(this, 0, panel.getHeight());
+
 		// change la taille de la fenêtre
-		size(panel.getWidth(), panel.getHeight());
+		size(panel.getWidth(), panel.getHeight() + dashboard.getHeigth());
 	}
 
 	/**
@@ -46,6 +54,9 @@ public class App extends PApplet {
 
 		// dessine le damier
 		panel.draw();
+
+		// dessine le dashboard
+		dashboard.draw();
 	}
 
 	/**

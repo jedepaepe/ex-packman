@@ -9,7 +9,7 @@ public class App extends PApplet {
 	/**
 	 * référence sur le damier
 	 */
-	public Panel panel = new Panel();
+	public Panel panel;
 
 	/**
 	 * point d'entrée du programme
@@ -25,9 +25,8 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void settings () {
-		// le panel doit dessiner => il doit avoir une référence sur le PApplet
-		panel.painter = this;
-		panel.packman.painter = this;
+		// instancie le damier en passant une référence sur le PApplet pour pouvoir dessiner
+		panel = new Panel(this);
 
 		// change la taille de la fenêtre
 		size(panel.getWidth(), panel.getHeight());

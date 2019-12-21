@@ -24,9 +24,21 @@ public class Panel {
 	int cellSize = 21;
 
 	/**
-	 * packman object
+	 * références sur l'objet packman
 	 */
-	Packman packman = new Packman();
+	Packman packman = null;
+
+	/**
+	 * Constructeur du Panel
+	 * @param painter est une référence sur un PApplet, pour pouvoir dessiner
+	 */
+	public Panel(PApplet painter) {
+		// initialise le champs painter
+		this.painter = painter;
+
+		// crée un objet Packman
+		packman = new Packman(painter);
+	}
 
 	/**
 	 * @return la largeur du damier

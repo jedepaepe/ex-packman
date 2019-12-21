@@ -24,6 +24,15 @@ public class Packman {
 	int cIndex = 15;
 
 	/**
+	 * Contructeur de Packman
+	 * @param painter est une référence sur PApplet pour peindre
+	 */
+	public Packman(PApplet painter) {
+		// initialise le champs painter
+		this.painter = painter;
+	}
+
+	/**
 	 * calcule l'indice de la ligne suite à un déplacement vers le haut
 	 * @param nrLines est le nombre de lignes
 	 */

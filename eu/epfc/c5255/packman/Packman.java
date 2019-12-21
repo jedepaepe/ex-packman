@@ -16,20 +16,34 @@ public class Packman {
 	/**
 	 * index de la ligne où se trouve packman (r: row)
 	 */
-	private int rIndex = 10;
+	private int rIndex;
 
 	/**
 	 * index de la colonne où se trouve packman
 	 */
-	private int cIndex = 15;
+	private int cIndex;
+
+	/**
+	 * nombre de colonnes que Packman peut visiter
+	 */
+	private int nrColumns;
+
+	/**
+	 * nombre de lignes que Packman peut visiter
+	 */
+	private int nrRows;
 
 	/**
 	 * Contructeur de Packman
 	 * @param painter est une référence sur PApplet pour peindre
+	 * @param nrColumns est le nombre de colonnes que Packman peut visiter
+	 * @param nrRows est le nombre de lignes que Packman peut visiter
 	 */
-	public Packman(PApplet painter) {
+	public Packman(PApplet painter, int nrColumns, int nrRows) {
 		// initialise le champs painter
 		this.painter = painter;
+		this.nrColumns = nrColumns;
+		this.nrRows = nrRows;
 	}
 
 	/**
@@ -48,33 +62,29 @@ public class Packman {
 
 	/**
 	 * calcule l'indice de la ligne suite à un déplacement vers le haut
-	 * @param nrLines est le nombre de lignes
 	 */
-	public void moveUp(int nrLines) {
-		rIndex = (--rIndex + nrLines) % nrLines;
+	public void moveUp() {
+		rIndex = (--rIndex + nrRows) % nrRows;
 	}
 
 	/**
 	 * calcule l'indice de la colonne suite à un déplacement vers la droite
-	 * @param nrColumns est le nombre de colonnes
 	 */
-	public void moveRigh(int nrColumns) {
+	public void moveRigh() {
 		cIndex = (++cIndex + nrColumns) % nrColumns;
 	}
 
 	/**
 	 * calcule l'indice de la ligne suite à un déplacement vers le bas
-	 * @param nrLines est l'indice maximum
 	 */
-	public void moveDown(int nrLines) {
-		rIndex = (++rIndex + nrLines) % nrLines;
+	public void moveDown() {
+		rIndex = (++rIndex + nrRows) % nrRows;
 	}
 
 	/**
 	 * calcule l'indice de la colonne suite à un déplacement vers le base
-	 * @param nrColumns est le nombre de colonnes
 	 */
-	public void moveLeft(int nrColumns) {
+	public void moveLeft() {
 		cIndex = (--cIndex + nrColumns) % nrColumns;
 	}
 
@@ -101,16 +111,16 @@ public class Packman {
 		// dépendant la touche clavier enfoncée
 		switch (painter.keyCode) {
 		case PApplet.UP:
-			moveUp(nrLines);
+			moveUp();
 			break;
 		case PApplet.RIGHT:
-			moveRigh(nrColumns);
+			moveRigh();
 			break;
 		case PApplet.DOWN:
-			moveDown(nrLines);;
+			moveDown();;
 			break;
 		case PApplet.LEFT:
-			moveLeft(nrColumns);
+			moveLeft();
 			break;
 		}
 	}

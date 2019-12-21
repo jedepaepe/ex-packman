@@ -47,7 +47,7 @@ public class Panel {
 		this.painter = painter;
 
 		// crée un objet Packman
-		packman = new Packman(painter);
+		packman = new Packman(painter, nrCells, nrCells);
 
 		// initialise les trésors
 		for (int c = 0; c < treasures.length; ++ c) {

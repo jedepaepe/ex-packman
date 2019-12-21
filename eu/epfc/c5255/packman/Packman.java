@@ -34,6 +34,11 @@ public class Packman {
 	private int nrRows;
 
 	/**
+	 * direction du mouvement de packman
+	 */
+	private int direction = 0;
+
+	/**
 	 * Contructeur de Packman
 	 * @param painter est une référence sur PApplet pour peindre
 	 * @param nrColumns est le nombre de colonnes que Packman peut visiter
@@ -91,11 +96,34 @@ public class Packman {
 	}
 
 	/**
+	 * déplace packman
+	 */
+	public void move() {
+		switch(direction) {
+		case PApplet.UP:
+			moveUp();
+			break;
+		case PApplet.RIGHT:
+			moveRigh();
+			break;
+		case PApplet.DOWN:
+			moveDown();
+			break;
+		case PApplet.LEFT:
+			moveLeft();
+			break;
+		}
+	}
+
+	/**
 	 * dessine Packman
 	 * @param x est la position x du centre de packman
 	 * @param y est la position y du centre de packman
 	 */
 	public void draw(float x, float y) {
+		// bouge packman
+		move();
+
 		// pas de trait
 		painter.noStroke();
 
@@ -110,19 +138,16 @@ public class Packman {
 	 * traite les événement de touches claviers enfoncés
 	 */
 	public void keyPressed(int nrColumns, int nrLines) {
-		// dépendant la touche clavier enfoncée
+		// si space : packman s'arrête
+		if (painter.key == ' ') direction = 0;
+
+		// si flèche packman bouge
 		switch (painter.keyCode) {
 		case PApplet.UP:
-			moveUp();
-			break;
 		case PApplet.RIGHT:
-			moveRigh();
-			break;
 		case PApplet.DOWN:
-			moveDown();;
-			break;
 		case PApplet.LEFT:
-			moveLeft();
+			direction = painter.keyCode;
 			break;
 		}
 	}

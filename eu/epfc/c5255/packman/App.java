@@ -45,6 +45,7 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void setup () {
+		frameRate(4);
 	}
 
 	@Override

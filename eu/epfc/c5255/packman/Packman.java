@@ -1,6 +1,12 @@
 package eu.epfc.c5255.packman;
 
+import processing.core.PApplet;
+
 public class Packman {
+	/**
+	 * référence sur le PApplet pour dessiner
+	 */
+	PApplet painter = null;
 
 	/**
 	 * taille de packman
@@ -56,12 +62,12 @@ public class Packman {
 	 */
 	public void draw(float x, float y) {
 		// pas de trait
-		App.app.noStroke();
+		painter.noStroke();
 
 		// pinceau de remplissage jaune
-		App.app.fill(255, 255, 0);
+		painter.fill(255, 255, 0);
 
 		// dessine packman
-		App.app.ellipse(x, y, diameter, diameter);
+		painter.ellipse(x, y, diameter, diameter);
 	}
 }

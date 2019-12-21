@@ -1,6 +1,12 @@
 package eu.epfc.c5255.packman;
 
+import processing.core.PApplet;
+
 public class Panel {
+	/**
+	 * référence sur le PApplet pour dessiner
+	 */
+	PApplet painter = null;
 
 	/**
 	 * taille de la marge ne pixels
@@ -41,14 +47,14 @@ public class Panel {
 	 */
 	public void draw() {
 		// pinceau de trait mauve
-		App.app.stroke(128, 0, 255);
+		painter.stroke(128, 0, 255);
 
 		// dessine le damier
 		for (int i = 0; i <= nrCells; ++i) {
 			// ligne horizontale
-			App.app.line(margin, margin + i * cellSize, margin + nrCells * cellSize, margin + i * cellSize);
+			painter.line(margin, margin + i * cellSize, margin + nrCells * cellSize, margin + i * cellSize);
 			// ligne verticale
-			App.app.line(margin + i * cellSize, margin, margin + i * cellSize, margin + nrCells * cellSize);
+			painter.line(margin + i * cellSize, margin, margin + i * cellSize, margin + nrCells * cellSize);
 		}
 
 		// dessine packman

@@ -2,6 +2,9 @@ package eu.epfc.c5255.packman;
 
 import processing.core.PApplet;
 
+/**
+ * Réprésente un fantôme
+ */
 public class Ghost extends Personage {
 
 	/**
@@ -15,8 +18,14 @@ public class Ghost extends Personage {
 		color = painter.color(255, 0, 0);
 	}
 
-	public void updateState() {
+	/**
+	 * bouge le fantôme
+	 */
+	@Override
+	public void move() {
+		// recalcule la direction 1x sur 4 (en moyenne)
 		if(painter.random(4) < 1) {
+			// tire au hazard la direction
 			int value = (int) painter.random(4);
 			switch(value) {
 			case 0:
@@ -33,6 +42,6 @@ public class Ghost extends Personage {
 				break;
 			}
 		}
-		move();
+		super.move();
 	}
 }

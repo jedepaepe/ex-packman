@@ -41,13 +41,17 @@ public class App extends PApplet {
 	}
 
 	/**
-	 * dessine l'image de base
+	 * initialisation
 	 */
 	@Override
 	public void setup () {
+		// 4 rafraichissements par seconde
 		frameRate(4);
 	}
 
+	/**
+	 * peindre la fenêtre (appelée par Processing)
+	 */
 	@Override
 	public void draw () {
 		// met à jour l'état du jeu
@@ -66,7 +70,7 @@ public class App extends PApplet {
 	}
 
 	/**
-	 * calcule la nouvelle position de packman
+	 * traiter les événements clavier (appelé par Processing)
 	 */
 	@Override
 	public void keyPressed () {

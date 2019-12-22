@@ -2,6 +2,10 @@ package eu.epfc.c5255.packman;
 
 import processing.core.PApplet;
 
+/**
+ * Le damier du jeu, contient aussi les règles du jeu
+ *
+ */
 public class Panel {
 	/**
 	 * référence sur le PApplet pour dessiner
@@ -84,6 +88,9 @@ public class Panel {
 		return nrCells * cellSize + 2 * margin;
 	}
 
+	/**
+	 * @return le score
+	 */
 	public int getScore() {
 		int score = -1;
 		for (int c = 0; c < treasures.length; ++c) {
@@ -103,10 +110,10 @@ public class Panel {
 
 		// bouge les fantômes
 		for (int n = 0; n < ghosts.length; ++n) {
-			ghosts[n].updateState();
+			ghosts[n].move();
 		}
 
-		// Packman meurt s'il touche un fantome
+		// Packman meurt s'il touche un fantôme
 		for (int n = 0; n < ghosts.length; ++n) {
 			Ghost g = ghosts[n];
 			if (packman.getCIndex() == g.getCIndex() && packman.getRIndex() == g.getRIndex()) {

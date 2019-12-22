@@ -2,6 +2,9 @@ package eu.epfc.c5255.packman;
 
 import processing.core.PApplet;
 
+/**
+ * représente Packman
+ */
 public class Packman extends Personage {
 
 	/**
@@ -21,7 +24,7 @@ public class Packman extends Personage {
 		// si space : packman s'arrête
 		if (painter.key == ' ') direction = 0;
 
-		// si flèche packman bouge
+		// prend la direction indiqué par la flèche
 		switch (painter.keyCode) {
 		case PApplet.UP:
 		case PApplet.RIGHT:

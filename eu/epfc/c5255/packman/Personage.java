@@ -2,6 +2,9 @@ package eu.epfc.c5255.packman;
 
 import processing.core.PApplet;
 
+/**
+ * Personnage sur le damier
+ */
 public class Personage {
 	/**
 	 * référence sur le PApplet pour dessiner
@@ -49,7 +52,7 @@ public class Personage {
 	protected int direction = 0;
 
 	/**
-	 * Contructeur de personage
+	 * Contructeur du personnage
 	 * @param painter est une référence sur PApplet pour peindre
 	 * @param nrColumns est le nombre de colonnes que personage peut visiter
 	 * @param nrRows est le nombre de lignes que personage peut visiter

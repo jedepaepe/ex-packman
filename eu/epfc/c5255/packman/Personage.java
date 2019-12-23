@@ -155,4 +155,26 @@ public class Personage {
 			painter.ellipse(x, y, diameter, diameter);
 		}
 	}
+
+	/**
+	 * serialise l'objet
+	 * @return une chaîne de caractère représentant l'objet
+	 */
+	public String serialize() {
+		return alive + ";" +
+			diameter + ";" +
+			color + ";" +
+			rIndex + ";" +
+			cIndex + ";" +
+			direction;
+	}
+
+	public void deserialise(String[] values) {
+		this.alive = Boolean.parseBoolean(values[0]);
+		this.diameter = Integer.parseInt(values[1]);
+		this.color = Integer.parseInt(values[2]);
+		this.rIndex = Integer.parseInt(values[3]);
+		this.cIndex = Integer.parseInt(values[4]);
+		this.direction = Integer.parseInt(values[5]);
+	}
 }

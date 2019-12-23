@@ -1,5 +1,10 @@
 package eu.epfc.c5255.packman;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 import processing.core.PApplet;
 
 /**
@@ -74,6 +79,42 @@ public class App extends PApplet {
 	 */
 	@Override
 	public void keyPressed () {
-		panel.keyPressed();
+		switch(key) {
+		case 'L':
+		case 'l':
+			load();
+			break;
+		case 'S':
+		case 's':
+			save();
+			break;
+		default:
+			panel.keyPressed();
+		}
+	}
+
+	/**
+	 * sauve l'état du jeu
+	 */
+	public void save () {
+		try {
+			FileWriter fw = new FileWriter(new File("packman.txt"));
+			fw.write(panel.serialize());
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void load () {
+		try {
+			Scanner scanner = new Scanner(new File("packman.txt"));
+			String config = scanner.nextLine();
+			panel.deserialize(this, config);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

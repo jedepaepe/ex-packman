@@ -1,5 +1,7 @@
 package eu.epfc.c5255.packman;
 
+import java.util.Arrays;
+
 import processing.core.PApplet;
 
 /**
@@ -181,5 +183,49 @@ public class Panel {
 	 */
 	public float getCellCenterY(int lIndex) {
 		return margin + (lIndex + 0.5F) * cellSize;
+	}
+
+	public String serialize() {
+		StringBuilder sb = new StringBuilder()
+				.append(margin)
+				.append(";")
+				.append(nrCells)
+				.append(";")
+				.append(cellSize)
+				.append(";")
+				.append(treasureDiameter)
+				.append(";");
+		for (int c = 0; c < treasures.length; ++c) {
+			for (int r = 0; r < treasures[c].length; ++r) {
+				sb.append(treasures[c][r]).append(";");
+			}
+		}
+		for (int n = 0; n < ghosts.length; ++n) {
+			sb.append(ghosts[n].serialize()).append(";");
+		}
+		sb.append(packman.serialize());
+		return sb.toString();
+	}
+
+	public void deserialize(PApplet painter, String state) {
+		String[] values = state.split(";");
+		int index = 0;
+		margin = Integer.parseInt(values[index++]);
+		nrCells = Integer.parseInt(values[index++]);
+		cellSize = Integer.parseInt(values[index++]);
+		treasureDiameter = Float.parseFloat(values[index++]);
+		treasures = new boolean[nrCells][nrCells];
+		for (int c = 0; c < treasures.length; ++c) {
+			for (int r = 0; r < treasures[c].length; ++r) {
+				treasures[c][r] = Boolean.parseBoolean(values[index++]);
+			}
+		}
+		for (int nr = 0; nr < ghosts.length; ++nr) {
+			ghosts[nr] = new Ghost(painter, nrCells, nrCells);
+			ghosts[nr].deserialise(Arrays.copyOfRange(values, index, index + 6));
+			index += 6;
+		}
+		packman = new Packman(painter, nrCells, nrCells);
+		packman.deserialise(Arrays.copyOfRange(values, index, index + 6));
 	}
 }

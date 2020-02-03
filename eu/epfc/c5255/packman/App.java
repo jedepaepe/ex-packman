@@ -10,12 +10,12 @@ public class App extends PApplet {
 	 * taille de la marge ne pixels
 	 */
 	static int margin = 25;
-	
+
 	/**
 	 * nombre de cellules par damier
 	 */
 	static int nrCells = 29;
-	
+
 	/**
 	 * taille des cellules
 	 */
@@ -25,54 +25,54 @@ public class App extends PApplet {
 	 * taille de packman
 	 */
 	static int packmanDiameter = (int) (nrPixelPerCell * 1.1);
-	
+
 	/**
-	 * absisse (x) de packman (première cellule = 0)
+	 * absisse (x) de packman (premiÃ©re cellule = 0)
 	 */
 	static int packmanX = nrCells / 2;
-	
+
 	/**
-	 * coordonnée (y) de packman (première cellule = 0)
+	 * coordonnÃ©e (y) de packman (premiÃ©re cellule = 0)
 	 */
 	static int packmanY = 10;
-	
+
 	/**
-	 * point d'entrée du programme
-	 * @param args sont les arguments passés par la ligne de commande
+	 * point d'entrÃ©e du programme
+	 * @param args sont les arguments passÃ©s par la ligne de commande
 	 */
 	public static void main(String[] args) {
-		// démarre le moteur Processing (la GUI)
+		// dÃ©marre le moteur Processing (la GUI)
 		PApplet.main(App.class.getName());
 	}
-	
+
 	/**
 	 * configure l'application
 	 */
 	@Override
 	public void settings () {
 		/**
-		 * la taille de la fenêtre est:
+		 * la taille de la fenÃ¨tre est:
 		 * largeur = marge + nr_de_cellules * taille_de_la_cellule + marge
 		 * hauteur = marge + nr_de_cellules * taille_de_la_cellule + marge
 		 */
 		size(nrCells * nrPixelPerCell + 2 * margin, nrCells * nrPixelPerCell + 2 * margin);
 	}
-	
+
 	/**
 	 * dessine l'image de base
 	 */
 	@Override
 	public void setup () {
 	}
-	
+
 	@Override
 	public void draw () {
 		// couleur de fond noir
 		background(0);
-		
+
 		// pinceau de trait mauve
 		stroke(128, 0, 255);
-		
+
 		// dessine le damier
 		for (int i = 0; i <= nrCells; ++i) {
 			// ligne horizontale
@@ -80,16 +80,16 @@ public class App extends PApplet {
 			// ligne verticale
 			line(margin + i * nrPixelPerCell, margin, margin + i * nrPixelPerCell, margin + nrCells * nrPixelPerCell);
 		}
-		
-		drawPackman();		
+
+		drawPackman();
 	}
-	
+
 	/**
 	 * calcule la nouvelle position de packman
 	 */
 	@Override
 	public void keyPressed () {
-		// dépendant la touche clavier enfoncée
+		// dÃ©pendant la touche clavier enfoncÃ©e
 		switch (keyCode) {
 		case UP:
 			packmanY = --packmanY % nrCells;
@@ -104,21 +104,21 @@ public class App extends PApplet {
 			packmanX = --packmanX % nrCells;
 			break;
 		}
-		// appliquer une translation de nrCells si négatif
+		// appliquer une translation de nrCells si nÃ©gatif
 		if (packmanX < 0) packmanX +=nrCells;
 		if (packmanY < 0) packmanY +=nrCells;
 	}
-	
+
 	/**
 	 * dessine packman
 	 */
 	public void drawPackman () {
 		// pas de trait
 		noStroke();
-		
+
 		// pinceau de remplissage jaune
 		fill(255, 255, 0);
-		
+
 		// dessine packman
 		ellipse(margin + (packmanX + 0.5F) * nrPixelPerCell, margin + (packmanY + 0.5F) * nrPixelPerCell, packmanDiameter, packmanDiameter);
 	}

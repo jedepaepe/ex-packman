@@ -107,9 +107,11 @@ public class App extends PApplet {
 		}
 	}
 
+	/**
+	 * charge l'état du jeu
+	 */
 	public void load () {
-		try {
-			Scanner scanner = new Scanner(new File("packman.txt"));
+		try (Scanner scanner = new Scanner(new File("packman.txt"))) {
 			String config = scanner.nextLine();
 			panel.deserialize(this, config);
 		} catch (IOException e) {

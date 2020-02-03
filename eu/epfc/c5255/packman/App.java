@@ -37,15 +37,6 @@ public class App extends PApplet {
 	static int packmanY = 10;
 
 	/**
-	 * point d'entrée du programme
-	 * @param args sont les arguments passés par la ligne de commande
-	 */
-	public static void main(String[] args) {
-		// démarre le moteur Processing (la GUI)
-		PApplet.main(App.class.getName());
-	}
-
-	/**
 	 * configure l'application
 	 */
 	@Override
